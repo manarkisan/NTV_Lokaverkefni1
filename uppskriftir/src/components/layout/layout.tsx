@@ -1,20 +1,25 @@
 import "./layout.styles.css";
+import { useEffect, useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import type { ReactNode } from "react";
 import Uppskriftir from "../pages/uppskriftir";
+import { Children } from "react";
 
-export default function Layout() {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <>
+    <div className="layout">
       <header>
         <nav>
-            <a href="/">Heim</a>
-            <a href="../pages/uppskriftir">Uppskriftir</a>
-            <a href="/">Um</a>
+          <Link to="/">Heim</Link>
+          <Link to="/uppskriftir">Uppskriftir</Link>
+          <Link to="/">Um</Link>
         </nav>
       </header>
-      <main>Stuff that links into layout goes here
-        <Uppskriftir/>
+      <main>
+        <div>Stuff that links into layout goes here</div>
+        {children}
       </main>
       <footer>*footer*</footer>
-    </>
+    </div>
   );
 }
