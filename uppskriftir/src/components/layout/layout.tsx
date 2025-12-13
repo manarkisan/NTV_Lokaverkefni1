@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main>
       
         {children}
-         
+         <Randomjoke></Randomjoke>
       </main>
       <footer>*footer*</footer>
     </div>

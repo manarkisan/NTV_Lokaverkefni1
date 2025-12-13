@@ -9,7 +9,7 @@ import type { Joke } from "../utils";
 
 
 export default function randomJoke() {
-  const [joke, setJoke] = useState<Joke[]| []>([]);
+  const [joke, setJoke] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string |null>(null);
 
@@ -19,8 +19,8 @@ export default function randomJoke() {
     const fetchJoke = async () => {
       try {
         const response = await fetch("https://icanhazdadjoke.com/slack");
-        const data: Joke = await response.json();
-        setJoke([data]);
+        const data = await response.json();
+        setJoke(data.attachments[0].text);
       } catch {
         setError("Villa kom upp um djókið :(");
       } finally {
@@ -28,7 +28,7 @@ export default function randomJoke() {
       }
     };
     fetchJoke();
-  }, [joke]);
+  }, []);
 
   //
   //     .then ((res) => res.json())
@@ -42,9 +42,8 @@ export default function randomJoke() {
 
       <div className="random_joke">
         <h1>Joke:</h1>
-        {joke.map((joke) => (
-          <p>{joke.attachments}</p>
-        ))}
+        <p>{joke}</p>
+         {error && <div>{error}</div>}
       </div>
     </>
   );

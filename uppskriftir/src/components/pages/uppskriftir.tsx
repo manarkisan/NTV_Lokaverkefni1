@@ -17,8 +17,8 @@ export default function Uppskriftir() {
         const response = await fetch(
           `https://www.themealdb.com/api/json/v1/1/random.php`
         );
-        const data: Meals[] = await response.json();
-        setMeals(data);
+        const data = await response.json();
+        setMeals(data.meals);
       } catch {
         setError("Villa kom upp!");
       } finally {
@@ -27,7 +27,7 @@ export default function Uppskriftir() {
     };
 
     fetchMeals();
-  }, [meals]);
+  }, []);
 
   if (loading) return <p>Sæki uppskrift...</p>;
   if (error) return <p>Villa: {error}</p>;
@@ -36,10 +36,15 @@ export default function Uppskriftir() {
     <>
       <div>Hér koma uppskriftir 🐒</div>
       <div className="uppskrift">
-        <h1>Upskrift dagsins:</h1>
+        <h1>Uppskrift dagsins:</h1>
         {meals.map((meal) => (
-          <p>{meal.strMeal}</p>
+          <><p>{meal.strMeal}</p>
+          <p>{meal.strIngredients}</p>
+          <p>{meal.strCategory}</p>
+          <p>{meal.strInstructions}</p>
+          </>
         ))}
+        {error && <div>{error}</div>}
       </div>
 
       <div className="next_btn">

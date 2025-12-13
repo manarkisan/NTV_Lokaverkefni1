@@ -31,6 +31,7 @@ nav {
 
 .random_joke {
     display: flex;
+    flex-direction: column;
     position: sticky;
     justify-content: flex-end;
     align-content: flex-end;
