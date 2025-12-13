@@ -1,9 +1,10 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+ #root {
+  width: 100%;
+  height: 100%;
   text-align: center;
-}
+  
+
+} 
 
 .logo {
   height: 6em;
@@ -33,10 +34,4 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
-}

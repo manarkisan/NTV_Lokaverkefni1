@@ -2,8 +2,8 @@ import "./layout.styles.css";
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import type { ReactNode } from "react";
-import Uppskriftir from "../pages/uppskriftir";
 import { Children } from "react";
+import Randomjoke from "../pages/randomjoke";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -12,12 +12,13 @@ export default function Layout({ children }: { children: ReactNode }) {
         <nav>
           <Link to="/">Heim</Link>
           <Link to="/uppskriftir">Uppskriftir</Link>
-          <Link to="/">Um</Link>
+          <Link to="/about">Um</Link>
         </nav>
       </header>
       <main>
-        <div>Stuff that links into layout goes here</div>
+      
         {children}
+         
       </main>
       <footer>*footer*</footer>
     </div>
