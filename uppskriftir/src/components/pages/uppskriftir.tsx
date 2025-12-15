@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
- import { Link } from "react-router-dom";
- import type { ReactNode } from "react";
- import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import type { ReactNode } from "react";
+import { useParams } from "react-router-dom";
 import type { Meals } from "../utils";
 
 export default function Uppskriftir() {
@@ -34,24 +34,49 @@ export default function Uppskriftir() {
 
   return (
     <>
+      <>
+        <nav>
+          Leita eftir: 
+          <a href="/">Staf</a>
+          <a href="/">Staðsetningu</a>
+          <a href="/">Flokki</a>
+          <a href="/">Einkennisnúmeri</a>
+          <a href="/">asdfasdf</a>
+        </nav>
+      </>
       <div>Hér koma uppskriftir 🐒</div>
       <div className="uppskrift">
         <h1>Uppskrift dagsins:</h1>
         {meals.map((meal) => (
-          <><p>{meal.strMeal}</p>
-          <p>{meal.strIngredients}</p>
-          <p>{meal.strCategory}</p>
-          <p>{meal.strInstructions}</p>
+          <>
+            <p
+              style={{
+                textDecoration: "underline",
+                fontSize: "25px",
+                fontWeight: "bold",
+              }}
+            >
+              {meal.strMeal}
+            </p>
+            <p>{meal.strIngredients}</p>
+            <p>
+              Type: <i>{meal.strCategory}</i>
+            </p>
+            <p>{meal.strInstructions}</p>
+            <p>{meal.strImageSource}</p>
           </>
         ))}
         {error && <div>{error}</div>}
       </div>
 
-      <div className="next_btn">
-        <button onClick={() => usePage(page - 1)}>Fyrri uppskrift</button>
-        <button onClick={() => usePage(page + 1)}>Næsta uppskrift</button>
+      <div className="meal_buttons">
+        <button className="next_btn" onClick={() => usePage(page - 1)}>
+          Fyrri uppskrift
+        </button>
+        <button className="next_btn" onClick={() => usePage(page + 1)}>
+          Næsta uppskrift
+        </button>
       </div>
     </>
   );
 }
-

@@ -40,8 +40,8 @@ export default function randomJoke() {
     <>
       
 
-      <div className="random_joke">
-        <h1>Joke:</h1>
+      <div>
+        <h3>Joke:</h3>
         <p>{joke}</p>
          {error && <div>{error}</div>}
       </div>

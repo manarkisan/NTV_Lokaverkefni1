@@ -16,9 +16,11 @@ export default function Layout({ children }: { children: ReactNode }) {
         </nav>
       </header>
       <main>
-      
         {children}
-         <Randomjoke></Randomjoke>
+        
+        <div className="random_joke">
+          <Randomjoke></Randomjoke>
+        </div>
       </main>
       <footer>*footer*</footer>
     </div>

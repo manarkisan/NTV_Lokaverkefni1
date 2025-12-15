@@ -7,6 +7,7 @@ import "./components/layout/layout.styles.css";
 
 import "./App.css";
 import About from "./components/pages/about";
+import Heim from "./components/pages/heim";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<div>HEllo</div>} />
+            <Route path="/" element={<Heim/>} />
             <Route path="/uppskriftir" element={<Uppskriftir />} />
             <Route path="/about" element={<About />} />
           </Routes>

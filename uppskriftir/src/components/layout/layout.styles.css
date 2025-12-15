@@ -7,19 +7,22 @@ body {
 
 .layout {
     top: 0;
+    /* display: flex;
+    flex-direction: column; */
+    
     
 }
 
 header {
     background-color: blueviolet;
     color: cornflowerblue;
-    
+    padding-top: 10px;
     margin-top: 0px;
 
 }
 
 footer {
-    
+    background-color: rgb(58, 4, 109);
     
 }
 
@@ -32,13 +35,30 @@ nav {
 .random_joke {
     display: flex;
     flex-direction: column;
-    position: sticky;
-    justify-content: flex-end;
-    align-content: flex-end;
+    position: absolute;
+    justify-self: flex-end;
+    align-self: flex-start;
     margin-bottom: 10px;
     margin-right: 10px;
+    
+}
+
+.uppskrift {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    
+}
+
+.meal_buttons {
+    padding: 2rem;
+
 }
 
 .next_btn {
     color: deepskyblue;
+    background-color: rgb(124, 30, 190);
+    border-radius: 100px;
+    margin: 1rem;
 }
