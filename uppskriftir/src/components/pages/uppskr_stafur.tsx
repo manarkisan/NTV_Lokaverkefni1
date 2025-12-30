@@ -4,7 +4,8 @@ import type { ReactNode } from "react";
 import { useParams } from "react-router-dom";
 import type { Meals } from "../utils";
 
-export default function Uppskriftir() {
+export default function UppskriftStafur() {
+  const [letter, setLetter] = useState("a");
   const [meals, setMeals] = useState<Meals[] | []>([]);
   const [page, usePage] = useState(1);
 
@@ -15,10 +16,10 @@ export default function Uppskriftir() {
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/random.php`
+          `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`
         );
         const data = await response.json();
-        setMeals(data.meals);
+        setMeals(data.meals ?? []);
       } catch {
         setError("Villa kom upp!");
       } finally {
@@ -27,10 +28,14 @@ export default function Uppskriftir() {
     };
 
     fetchMeals();
-  }, []);
+  }, [letter]);
 
   if (loading) return <p>Sæki uppskrift...</p>;
   if (error) return <p>Villa: {error}</p>;
+
+  function toLowerCase(): any {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <>
@@ -43,10 +48,18 @@ export default function Uppskriftir() {
           <a href="/">Einkennisnúmeri</a>
           <a href="/">asdfasdf</a>
         </nav>
+        <nav className="byLetter">Stafur: 
+          {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
+            <button key={letter} onClick={() => setLetter(letter)}>
+              {letter}
+            </button>
+          ))}
+        </nav>
+        {loading && <p>Hleð...</p>}
       </>
       <div>Hér koma uppskriftir 🐒</div>
       <div className="uppskrift">
-        <h1>Uppskrift dagsins:</h1>
+        <h1>Uppskriftir sem byrja á stafnum {letter}:</h1>
         {meals.map((meal) => (
           <>
             <p
@@ -58,30 +71,22 @@ export default function Uppskriftir() {
             >
               {meal.strMeal}
             </p>
-            <p>{meal.strImageSource}</p>
-            <p>Country of origin: {meal.strArea}</p>
-            <p>
-              Type: <i>{meal.strCategory}</i>
-            </p>
             <p>
               <b>Ingredients: </b>
               <br />
               {meal.strIngredient1}, {meal.strIngredient2},{" "}
-              {meal.strIngredient3},{meal.strIngredient4}, {meal.strIngredient5},{" "}
-              {meal.strIngredient6},{meal.strIngredient7},{" "}
+              {meal.strIngredient3},{meal.strIngredient4}, {meal.strIngredient5}
+              , {meal.strIngredient6},{meal.strIngredient7},{" "}
               {meal.strIngredient8}, {meal.strIngredient9},{" "}
               {meal.strIngredient10}, {meal.strIngredient11},{" "}
               {meal.strIngredient12}, {meal.strIngredient13},{" "}
               {meal.strIngredient14}.
             </p>
             <p>
-              -Instructions-
-              <br />
-              {meal.strInstructions}
+              Type: <i>{meal.strCategory}</i>
             </p>
-
-            <p>{meal.strMeasures}</p>
-            <p>Meal database: ID{meal.idMeal}</p>
+            <p>{meal.strInstructions}</p>
+            <p>{meal.strImageSource}</p>
           </>
         ))}
         {error && <div>{error}</div>}

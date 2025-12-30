@@ -17,12 +17,12 @@ export default function Layout({ children }: { children: ReactNode }) {
       </header>
       <main>
         {children}
-        
+
         <div className="random_joke">
-          <Randomjoke></Randomjoke>
+          <Randomjoke/>
         </div>
       </main>
-      <footer>*footer*</footer>
+      <footer>© 2025-2026 Inga G. Vald.</footer>
     </div>
   );
 }
