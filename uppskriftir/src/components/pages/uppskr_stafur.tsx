@@ -45,12 +45,13 @@ export default function UppskriftStafur() {
           <a href="uppskr_stafur">Staf</a>
           <a href="/">Staðsetningu</a>
           <a href="/">Flokki</a>
-          <a href="/">Einkennisnúmeri</a>
+          <a href="uppskrift_numer">Einkennisnúmeri</a>
           <a href="/">asdfasdf</a>
         </nav>
-        <nav className="byLetter">Stafur: 
+        <nav className="byLetter">
+          Stafur:
           {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
-            <button key={letter} onClick={() => setLetter(letter)}>
+            <button className="btnLetter" key={letter} onClick={() => setLetter(letter)}>
               {letter}
             </button>
           ))}
@@ -70,6 +71,11 @@ export default function UppskriftStafur() {
               }}
             >
               {meal.strMeal}
+            </p>
+            <p>{meal.strImageSource}</p>
+            <p>Country of origin: {meal.strArea}</p>
+            <p>
+              Type: <i>{meal.strCategory}</i>
             </p>
             <p>
               <b>Ingredients: </b>

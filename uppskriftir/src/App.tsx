@@ -20,6 +20,7 @@ function App() {
             <Route path="/uppskriftir" element={<Uppskriftir />} />
             <Route path="/about" element={<About />} />
             <Route path="/uppskr_stafur" element={<UppskriftStafur />} />
+            <Route path="/uppskrift_numer" element={<UppskriftStafur />} />
           </Routes>
         </Layout>
       </BrowserRouter>
