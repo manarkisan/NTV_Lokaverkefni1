@@ -44,7 +44,7 @@ export default function UppskriftId() {
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="/">Staðsetningu</a>
-          <a href="/">Flokki</a>
+          <a href="uppskr_flokkur">Flokki</a>
           <a href="uppskrift_numer">Einkennisnúmeri</a>
           <a href="/">asdfasdf</a>
         </nav>

@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import type { Meals } from "../utils";
 
 export default function UppskriftFlokkur() {
-  const [letter, setLetter] = useState("a");
+  const [category, setCategory] = useState<string | null>(null);
+  const [categories, setCategories] = useState<string[]>([]);
   const [meals, setMeals] = useState<Meals[] | []>([]);
   const [page, usePage] = useState(1);
 
@@ -16,10 +17,10 @@ export default function UppskriftFlokkur() {
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/categories.php`
+          `www.themealdb.com/api/json/v1/1/list.php?c=list`
         );
         const data = await response.json();
-        setMeals(data.meals ?? []);
+        setMeals(data.meals.map((c: any) => c.strCategory));
       } catch {
         setError("Villa kom upp!");
       } finally {
@@ -28,14 +29,14 @@ export default function UppskriftFlokkur() {
     };
 
     fetchMeals();
-  }, [letter]);
+  }, [categories]);
 
   if (loading) return <p>Sæki uppskrift...</p>;
   if (error) return <p>Villa: {error}</p>;
 
-  function toLowerCase(): any {
-    throw new Error("Function not implemented.");
-  }
+  // function toLowerCase(): any {
+  //   throw new Error("Function not implemented.");
+  // }
 
   return (
     <>
@@ -51,7 +52,7 @@ export default function UppskriftFlokkur() {
         <nav className="byLetter">
           Stafur:
           {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
-            <button className="btnLetter" key={letter} onClick={() => setLetter(letter)}>
+            <button className="btnLetter" key={letter} onClick={() => setCategories(categories)}>
               {letter}
             </button>
           ))}
@@ -60,7 +61,7 @@ export default function UppskriftFlokkur() {
       </>
       <div>Hér koma uppskriftir 🐒</div>
       <div className="uppskrift">
-        <h1>Uppskriftir sem byrja á stafnum {letter}:</h1>
+        <h1>{category} uppskriftir:</h1>
         {meals.map((meal) => (
           <>
             <p
