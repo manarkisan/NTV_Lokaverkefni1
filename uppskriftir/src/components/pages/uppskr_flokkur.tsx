@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import type { ReactNode } from "react";
-import { useParams } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import type { ReactNode } from "react";
+// import { useParams } from "react-router-dom";
 import type { Meals } from "../utils";
 
 export default function UppskriftFlokkur() {
@@ -14,13 +14,13 @@ export default function UppskriftFlokkur() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchMeals = async () => {
+    const fetchCategories = async () => {
       try {
         const response = await fetch(
-          `www.themealdb.com/api/json/v1/1/list.php?c=list`
+          `https://www.themealdb.com/api/json/v1/1/list.php?c=list`
         );
         const data = await response.json();
-        setMeals(data.meals.map((c: any) => c.strCategory));
+        setCategories(data.meals.map((c: any) => c.strCategory));
       } catch {
         setError("Villa kom upp!");
       } finally {
@@ -28,8 +28,26 @@ export default function UppskriftFlokkur() {
       }
     };
 
-    fetchMeals();
-  }, [categories]);
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    if (!category) return;
+
+    const fetchMealsByCategory = async () => {
+      setLoading(true);
+
+      const res = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+      );
+      const data = await res.json();
+
+      setMeals(data.meals ?? []);
+      setLoading(false);
+    };
+
+    fetchMealsByCategory();
+  }, [category]);
 
   if (loading) return <p>Sæki uppskrift...</p>;
   if (error) return <p>Villa: {error}</p>;
@@ -45,21 +63,25 @@ export default function UppskriftFlokkur() {
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="/">Staðsetningu</a>
-          <a href="/">Flokki</a>
+          <a href="uppskr_flokkur">Flokki</a>
           <a href="uppskrift_numer">Einkennisnúmeri</a>
           <a href="/">asdfasdf</a>
         </nav>
-        <nav className="byLetter">
-          Stafur:
-          {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
-            <button className="btnLetter" key={letter} onClick={() => setCategories(categories)}>
-              {letter}
+        <nav className="byCategory">
+          Flokkur:
+          {categories.map((category) => (
+            <button
+              className="btnLetter"
+              key={category}
+              onClick={() => setCategory(category)}
+            >
+              {category}
             </button>
           ))}
         </nav>
         {loading && <p>Hleð...</p>}
       </>
-      <div>Hér koma uppskriftir 🐒</div>
+      <div>Hér koma uppskriftir 🐒 jksdfhkjsdhfksslkfzjlz</div>
       <div className="uppskrift">
         <h1>{category} uppskriftir:</h1>
         {meals.map((meal) => (

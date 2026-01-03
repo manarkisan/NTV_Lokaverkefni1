@@ -22,7 +22,13 @@ export type Meals = {
   strMeasures: string;
   strImageSource: string;
   strMealThumb: string;
+};
 
+export type MealsByCat = {
+  idCategory: number;
+  strCategory: string;
+  strCategoryThumb: string;
+  strCategoryDescription: string;
 };
 
 export type Joke = {
@@ -34,9 +40,6 @@ export type Joke = {
   response_type: string;
   username: string;
 };
-
-
-
 
 /*
 API:
@@ -59,4 +62,3 @@ o Sækja uppskirfti úr sama flokki til að birta sem svipaðar uppskriftir
 • Leita eftir nafni eða hráefni:
 o https://www.themealdb.com/api/json/v1/1/search.php?s={query}
         */
-

@@ -73,6 +73,12 @@ nav {
     gap: 1rem;
 }
 
+.byCategory {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .btnLetter {
     background-color: rgb(86, 20, 139);
     color:rgb(159, 128, 189);

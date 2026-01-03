@@ -9,6 +9,8 @@ import "./App.css";
 import About from "./components/pages/about";
 import Heim from "./components/pages/heim";
 import UppskriftStafur from "./components/pages/uppskr_stafur";
+import UppskriftFlokkur from "./components/pages/uppskr_flokkur";
+import UppskriftId from "./components/pages/uppskrift_numer";
 
 function App() {
   return (
@@ -20,8 +22,8 @@ function App() {
             <Route path="/uppskriftir" element={<Uppskriftir />} />
             <Route path="/about" element={<About />} />
             <Route path="/uppskr_stafur" element={<UppskriftStafur />} />
-            <Route path="/uppskrift_numer" element={<UppskriftStafur />} />
-            <Route path="/uppskr_flokkur" element={<UppskriftStafur />} />
+            <Route path="/uppskrift_numer" element={<UppskriftId />} />
+            <Route path="/uppskr_flokkur" element={<UppskriftFlokkur />} />
           </Routes>
         </Layout>
       </BrowserRouter>
