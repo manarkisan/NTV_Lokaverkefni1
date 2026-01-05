@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 // import type { ReactNode } from "react";
 // import { useParams } from "react-router-dom";
-import type { Meals } from "../utils";
+// import type { Meals } from "../utils";
+import type { MealsByCat } from "../utils";
 
 export default function UppskriftFlokkur() {
-  const [category, setCategory] = useState<string | null>(null);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [meals, setMeals] = useState<Meals[] | []>([]);
+  const [category, setCategory] = useState("");
+  const [categories, setCategories] = useState([]);
+  // const [meals, setMeals] = useState<Meals[] | []>([]);
+  const [mealsByCat, setMealsByCat] = useState<MealsByCat[] | []>([]);
   const [page, usePage] = useState(1);
 
   const [loading, setLoading] = useState(true);
@@ -20,9 +22,10 @@ export default function UppskriftFlokkur() {
           `https://www.themealdb.com/api/json/v1/1/list.php?c=list`
         );
         const data = await response.json();
-        setCategories(data.meals.map((c: any) => c.strCategory));
+        setCategories(data.mealsbycat.map((c: any) => c.strCategory));
+        console.log(data.categories)
       } catch {
-        setError("Villa kom upp!");
+        setError("Ekki náðist að ná í flokka");
       } finally {
         setLoading(false);
       }
@@ -41,8 +44,8 @@ export default function UppskriftFlokkur() {
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
       );
       const data = await res.json();
-
-      setMeals(data.meals ?? []);
+console.log(data)
+      setMealsByCat(data.mealsByCat ?? []);
       setLoading(false);
     };
 
@@ -84,7 +87,7 @@ export default function UppskriftFlokkur() {
       <div>Hér koma uppskriftir 🐒 jksdfhkjsdhfksslkfzjlz</div>
       <div className="uppskrift">
         <h1>{category} uppskriftir:</h1>
-        {meals.map((meal) => (
+        {mealsByCat.map((meal) => (
           <>
             <p
               style={{
@@ -93,29 +96,9 @@ export default function UppskriftFlokkur() {
                 fontWeight: "bold",
               }}
             >
-              {meal.strMeal}
+              {meal.idCategory}
             </p>
-            <p>{meal.strImageSource}</p>
-            <p>Country of origin: {meal.strArea}</p>
-            <p>
-              Type: <i>{meal.strCategory}</i>
-            </p>
-            <p>
-              <b>Ingredients: </b>
-              <br />
-              {meal.strIngredient1}, {meal.strIngredient2},{" "}
-              {meal.strIngredient3},{meal.strIngredient4}, {meal.strIngredient5}
-              , {meal.strIngredient6},{meal.strIngredient7},{" "}
-              {meal.strIngredient8}, {meal.strIngredient9},{" "}
-              {meal.strIngredient10}, {meal.strIngredient11},{" "}
-              {meal.strIngredient12}, {meal.strIngredient13},{" "}
-              {meal.strIngredient14}.
-            </p>
-            <p>
-              Type: <i>{meal.strCategory}</i>
-            </p>
-            <p>{meal.strInstructions}</p>
-            <p>{meal.strImageSource}</p>
+            
           </>
         ))}
         {error && <div>{error}</div>}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import type { ReactNode } from "react";
-import { useParams } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import type { ReactNode } from "react";
+// import { useParams } from "react-router-dom";
 import type { Meals } from "../utils";
 
 export default function UppskriftStafur() {
@@ -33,9 +33,9 @@ export default function UppskriftStafur() {
   if (loading) return <p>Sæki uppskrift...</p>;
   if (error) return <p>Villa: {error}</p>;
 
-  function toLowerCase(): any {
-    throw new Error("Function not implemented.");
-  }
+  // function toLowerCase(): any {
+  //   throw new Error("Function not implemented.");
+  // }
 
   return (
     <>
