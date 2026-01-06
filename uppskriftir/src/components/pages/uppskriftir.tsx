@@ -38,10 +38,8 @@ export default function Uppskriftir() {
         <nav>
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
-          <a href="/">Staðsetningu</a>
           <a href="uppskr_flokkur">Flokki</a>
           <a href="uppskrift_numer">Einkennisnúmeri</a>
-          <a href="/">asdfasdf</a>
         </nav>
       </>
       <div>Hér koma uppskriftir 🐒</div>
@@ -49,6 +47,7 @@ export default function Uppskriftir() {
         <h1>Uppskrift dagsins:</h1>
         {meals.map((meal) => (
           <>
+          <img className="mealImg" src={meal.strMealThumb}  />
             <p
               style={{
                 textDecoration: "underline",
@@ -58,7 +57,7 @@ export default function Uppskriftir() {
             >
               {meal.strMeal}
             </p>
-            <p>{meal.strImageSource}</p>
+            
             <p>Country of origin: {meal.strArea}</p>
             <p>
               Type: <i>{meal.strCategory}</i>

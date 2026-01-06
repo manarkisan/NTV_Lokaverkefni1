@@ -52,6 +52,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-self: center;
+    justify-content: center;
     
 }
 
@@ -83,4 +84,12 @@ nav {
     background-color: rgb(86, 20, 139);
     color:rgb(159, 128, 189);
     border-radius: 50%;
+}
+
+.mealImg {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    width: 500px;
 }

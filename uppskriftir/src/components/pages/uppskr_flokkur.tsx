@@ -22,8 +22,8 @@ export default function UppskriftFlokkur() {
           `https://www.themealdb.com/api/json/v1/1/list.php?c=list`
         );
         const data = await response.json();
-        setCategories(data.mealsbycat.map((c: any) => c.strCategory));
-        console.log(data.categories)
+        setCategories(data.meals.map((c: any) => c.strCategory));
+        console.log(data.categories);
       } catch {
         setError("Ekki náðist að ná í flokka");
       } finally {
@@ -44,8 +44,8 @@ export default function UppskriftFlokkur() {
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
       );
       const data = await res.json();
-console.log(data)
-      setMealsByCat(data.mealsByCat ?? []);
+      console.log(data);
+      setMealsByCat(data.meals ?? []);
       setLoading(false);
     };
 
@@ -65,10 +65,8 @@ console.log(data)
         <nav>
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
-          <a href="/">Staðsetningu</a>
           <a href="uppskr_flokkur">Flokki</a>
           <a href="uppskrift_numer">Einkennisnúmeri</a>
-          <a href="/">asdfasdf</a>
         </nav>
         <nav className="byCategory">
           Flokkur:
@@ -87,20 +85,24 @@ console.log(data)
       <div>Hér koma uppskriftir 🐒 jksdfhkjsdhfksslkfzjlz</div>
       <div className="uppskrift">
         <h1>{category} uppskriftir:</h1>
-        {mealsByCat.map((meal) => (
-          <>
-            <p
-              style={{
-                textDecoration: "underline",
-                fontSize: "25px",
-                fontWeight: "bold",
-              }}
-            >
-              {meal.idCategory}
-            </p>
-            
-          </>
-        ))}
+        <div>
+          {mealsByCat.map((mealcat) => (
+            <>
+              <img src={mealcat.strCategoryThumb} />
+              <p
+                style={{
+                  textDecoration: "underline",
+                  fontSize: "25px",
+                  fontWeight: "bold",
+                }}
+              >
+                {mealcat.strCategory} 
+              </p>
+              <p>{mealcat.strCategoryDescription}</p>
+              <p>ID: {mealcat.idCategory}</p>
+            </>
+          ))}
+        </div>
         {error && <div>{error}</div>}
       </div>
 
