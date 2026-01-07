@@ -11,6 +11,7 @@ import Heim from "./components/pages/heim";
 import UppskriftStafur from "./components/pages/uppskr_stafur";
 import UppskriftFlokkur from "./components/pages/uppskr_flokkur";
 import UppskriftId from "./components/pages/uppskrift_numer";
+import UppskriftFlokkur2 from "./components/pages/uppskr_flokk2";
 
 function App() {
   return (
@@ -21,9 +22,11 @@ function App() {
             <Route path="/" element={<Heim/>} />
             <Route path="/uppskriftir" element={<Uppskriftir />} />
             <Route path="/about" element={<About />} />
+            
             <Route path="/uppskr_stafur" element={<UppskriftStafur />} />
             <Route path="/uppskrift_numer" element={<UppskriftId />} />
             <Route path="/uppskr_flokkur" element={<UppskriftFlokkur />} />
+            <Route path="/uppskr_flokk2" element={<UppskriftFlokkur2 />} />
           </Routes>
         </Layout>
       </BrowserRouter>
