@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 export default function Heim() {
   return (
     <>
-    <img src="" />
+    <img src="null" />
       <div>Upphafssíða og svoleiðis.....</div>
     </>
   );

@@ -1,22 +1,60 @@
-import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-// import type { ReactNode } from "react";
-// import { useParams } from "react-router-dom";
+import { useState } from "react";
 import type { Meals } from "../utils";
 
 export default function Finna() {
+  const [meals, setMeals] = useState<Meals[]>([]);
+  const [query, setQuery] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [searchPress, setSearchPress] = useState(false);
 
+  const fetchMeals = async () => {
+    if (!query.trim()) return;
 
+    setSearchPress(true);
+    setError(null);
+    setLoading(true);
 
-    return (
-        <>
-        <div id="search">
-            Finna uppskrift: 
-            <input name="SearchBar" />
-            <button type="submit">Leita</button>
-        </div>
-        </>
-    )
+    try {
+      const res = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+      );
+      const data = await res.json();
+      setMeals(data.meals ?? []);
+    } catch {
+      setError("Leitin mistókst");
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  return (
+    <>
+      <div id="search">
+        Finna uppskrift:
+        <input
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setSearchPress(false);
+          }}
+        />
+        <button onClick={fetchMeals}>Leita</button>
+        {loading && <p>Leitar...</p>}
+        {error && <p>{error}</p>}
+        {searchPress && !loading && meals.length === 0 && query && (
+          <p>Fann ekkert...</p>
+        )}
+      </div>
 
+      <div className="searchResults">
+        {meals.map((meal) => (
+          <div key={meal.idMeal}>
+            <p>{meal.strMeal}</p>
+            <img src={meal.strMealThumb} width={200} />
+          </div>
+        ))}
+      </div>
+    </>
+  );
 }
