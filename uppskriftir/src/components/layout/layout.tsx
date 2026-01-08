@@ -13,6 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Link to="/">Heim</Link>
           <Link to="/uppskriftir">Uppskriftir</Link>
           <Link to="/about">Um</Link>
+          <Link to="/uppskr_finna">Leita að uppskrift</Link>
         </nav>
       </header>
       <main>

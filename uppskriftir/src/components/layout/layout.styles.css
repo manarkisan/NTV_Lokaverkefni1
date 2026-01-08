@@ -39,11 +39,15 @@ nav {
 .random_joke {
     display: flex;
     flex-direction: column;
-    position: static;
-    justify-self: flex-end;
+    position: fixed;
+    justify-self: flex-start;
     align-self: flex-start;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    bottom: 5%;
+    right: 1%;
+    
+    width: 300px;
+    border: 1rem rgb(155, 134, 248) solid;
+    border-radius: 4rem;
     
 }
 
@@ -88,8 +92,22 @@ nav {
 
 .mealImg {
     display: flex;
+    flex-flow: column;
     justify-content: center;
     justify-self: center;
     justify-items: center;
+    align-items: center;
     width: 500px;
+}
+
+.mealImg img {
+    display: flex;
+    justify-content: center;
+}
+
+#search {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1rem;
 }
