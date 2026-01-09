@@ -9,7 +9,7 @@ export default function Heim() {
       <img src="null" />
       <div>
         Hó hó hó! <br />
-        Veljið ykkur mat og fáið ykkur að borða!
+        Velkomin á Vesen Restaurant veitingahús!
       </div>
     </>
   );

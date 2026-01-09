@@ -14,11 +14,13 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Link to="/uppskriftir">Máltíðir</Link>
           <Link to="/uppskr_finna">Leita að máltíð</Link>
           <Link to="/about">Um Vesen</Link>
+         
           
         </nav>
       </header>
       <main>
         {children}
+
         <div id="vesenTitle">
           Vesen
           <br />
@@ -28,7 +30,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Randomjoke />
         </div>
       </main>
-      <footer>© 2025-2026 Inga G. Vald.</footer>
+      <footer>© 2025-2026 Inga G. Vald. <Link to="/dsf">asdf</Link></footer>
     </div>
   );
 }

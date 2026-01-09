@@ -24,8 +24,11 @@ footer {
   background-color: rgb(58, 4, 109);
   bottom: 0;
   position: fixed;
+  display: flex;
   justify-self: center;
   width: 100%;
+  justify-content: center;
+  gap: 2rem;
 }
 
 nav {
