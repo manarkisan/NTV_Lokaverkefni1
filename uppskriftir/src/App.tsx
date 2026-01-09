@@ -20,15 +20,14 @@ function App() {
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<Heim/>} />
+            <Route path="/" element={<Heim />} />
             <Route path="/uppskriftir" element={<Uppskriftir />} />
             <Route path="/about" element={<About />} />
-            
+            <Route path="/uppskr_finna" element={<Finna />} />
             <Route path="/uppskr_stafur" element={<UppskriftStafur />} />
             <Route path="/uppskrift_numer" element={<UppskriftId />} />
             <Route path="/uppskr_flokkur" element={<UppskriftFlokkur />} />
             <Route path="/uppskr_flokk2" element={<UppskriftFlokkur2 />} />
-            <Route path="/uppskr_finna" element={<Finna />} />
           </Routes>
         </Layout>
       </BrowserRouter>

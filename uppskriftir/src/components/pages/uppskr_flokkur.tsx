@@ -13,9 +13,9 @@ export default function UppskriftFlokkur() {
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState<Meals[] | []>([]);
   const [mealsByCat, setMealsByCat] = useState<MealsByCat[] | []>([]);
-  
+
   const [page, usePage] = useState(1);
-  const pageSize = 5
+  const pageSize = 5;
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -60,7 +60,7 @@ export default function UppskriftFlokkur() {
     fetchMealsByCategory();
   }, [category]);
 
-  if (loading) return <p>Sæki uppskrift...</p>;
+  if (loading) return <p>Sæki máltíðir...</p>;
   if (error) return <p>Villa: {error}</p>;
 
   // function toLowerCase(): any {
@@ -93,7 +93,7 @@ export default function UppskriftFlokkur() {
       </>
       <div>Hér koma uppskriftir 🐒 jksdfhkjsdhfksslkfzjlz</div>
       <div className="uppskrift">
-        <h1>{category} uppskriftir:</h1>
+        <h1>{category} máltíðir:</h1>
         <div>
           {mealsByCat.map((mealcat) => (
             <>
@@ -125,28 +125,7 @@ export default function UppskriftFlokkur() {
                 {meal.strMeal}
               </p>
 
-              <p>Country of origin: {meal.strArea}</p>
-              <p>
-                Type: <i>{meal.strCategory}</i>
-              </p>
-              <p>
-                <b>Ingredients: </b>
-                <br />
-                {meal.strIngredient1}, {meal.strIngredient2},{" "}
-                {meal.strIngredient3},{meal.strIngredient4},{" "}
-                {meal.strIngredient5}, {meal.strIngredient6},
-                {meal.strIngredient7}, {meal.strIngredient8},{" "}
-                {meal.strIngredient9}, {meal.strIngredient10},{" "}
-                {meal.strIngredient11}, {meal.strIngredient12},{" "}
-                {meal.strIngredient13}, {meal.strIngredient14}.
-              </p>
-              <p>
-                -Instructions-
-                <br />
-                {meal.strInstructions}
-              </p>
-
-              <p>{meal.strMeasures}</p>
+            
               <p>Meal database: ID{meal.idMeal}</p>
             </>
           ))}

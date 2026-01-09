@@ -5,15 +5,10 @@ import type { ReactNode } from "react";
 import { Children } from "react";
 import type { Joke } from "../utils";
 
-
-
-
 export default function randomJoke() {
   const [joke, setJoke] = useState<string>("");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string |null>(null);
-
- 
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchJoke = async () => {
@@ -34,16 +29,14 @@ export default function randomJoke() {
   //     .then ((res) => res.json())
   //     .then((data) => setJoke(data));
 
- if (loading) return <p>Sæki djók...</p>;
+  if (loading) return <p>Sæki djók...</p>;
   if (error) return <p>Villa: {error}</p>;
   return (
-    <>
-      
-
-      <div>
-        <h3>Joke:</h3>
+    <><h3 id="joke_title">Djók</h3>
+      <div id="joke_container">
+        
         <p>{joke}</p>
-         {error && <div>{error}</div>}
+        {error && <div>{error}</div>}
       </div>
     </>
   );

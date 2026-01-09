@@ -4,7 +4,6 @@ import { act, useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import type { Meals, MealsByCat } from "../utils";
 
-
 export default function UppskriftFlokkur2() {
   const URL_CATEGORIES =
     "https://www.themealdb.com/api/json/v1/1/categories.php";
@@ -12,7 +11,7 @@ export default function UppskriftFlokkur2() {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("");
   const [recipes, setRecipes] = useState([]);
-    const [meals, setMeals] = useState<Meals[] | []>([]);
+  const [meals, setMeals] = useState<Meals[] | []>([]);
 
   const [mealsByCat, setMealsByCat] = useState<MealsByCat[] | []>([]);
 
@@ -40,7 +39,7 @@ export default function UppskriftFlokkur2() {
       try {
         const res = await fetch(`${URL_RECIPIES}${activeCategory}`);
         const data = await res.json();
-        setMealsByCat(data.meals ?? [])
+        setMealsByCat(data.meals ?? []);
         setRecipes(data.meals.slice(0, 11));
       } catch (error) {
         setError("Ekki náðist að ná í flokka");
@@ -53,7 +52,7 @@ export default function UppskriftFlokkur2() {
   }, [activeCategory]);
 
   return (
-  <>
+    <>
       <>
         <nav>
           Leita eftir:
@@ -82,7 +81,6 @@ export default function UppskriftFlokkur2() {
         <div>
           {mealsByCat.map((mealcat) => (
             <>
-           
               <img src={mealcat.strCategoryThumb} />
               <p
                 style={{
@@ -91,55 +89,55 @@ export default function UppskriftFlokkur2() {
                   fontWeight: "bold",
                 }}
               >
-                {mealcat.strCategory} 
+                {mealcat.strCategory}
               </p>
               <p>{mealcat.strCategoryDescription}</p>
               <p>ID: {mealcat.idCategory}</p>
             </>
           ))}
         </div>
-        <div>{meals.map((meal) => (
-          <>
-          <img className="mealImg" src={meal.strMealThumb}  />
-            <p
-              style={{
-                textDecoration: "underline",
-                fontSize: "25px",
-                fontWeight: "bold",
-              }}
-            >
-              {meal.strMeal}
-            </p>
-            
-            <p>Country of origin: {meal.strArea}</p>
-            <p>
-              Type: <i>{meal.strCategory}</i>
-            </p>
-            <p>
-              <b>Ingredients: </b>
-              <br />
-              {meal.strIngredient1}, {meal.strIngredient2},{" "}
-              {meal.strIngredient3},{meal.strIngredient4}, {meal.strIngredient5},{" "}
-              {meal.strIngredient6},{meal.strIngredient7},{" "}
-              {meal.strIngredient8}, {meal.strIngredient9},{" "}
-              {meal.strIngredient10}, {meal.strIngredient11},{" "}
-              {meal.strIngredient12}, {meal.strIngredient13},{" "}
-              {meal.strIngredient14}.
-            </p>
-            <p>
-              -Instructions-
-              <br />
-              {meal.strInstructions}
-            </p>
+        <div>
+          {meals.map((meal) => (
+            <>
+              <img className="mealImg" src={meal.strMealThumb} />
+              <p
+                style={{
+                  textDecoration: "underline",
+                  fontSize: "25px",
+                  fontWeight: "bold",
+                }}
+              >
+                {meal.strMeal}
+              </p>
 
-            <p>{meal.strMeasures}</p>
-            <p>Meal database: ID{meal.idMeal}</p>
-          </>
-        ))}</div>
+              <p>Country of origin: {meal.strArea}</p>
+              <p>
+                Type: <i>{meal.strCategory}</i>
+              </p>
+              <p>
+                <b>Ingredients: </b>
+                <br />
+                {meal.strIngredient1}, {meal.strIngredient2},{" "}
+                {meal.strIngredient3},{meal.strIngredient4},{" "}
+                {meal.strIngredient5}, {meal.strIngredient6},
+                {meal.strIngredient7}, {meal.strIngredient8},{" "}
+                {meal.strIngredient9}, {meal.strIngredient10},{" "}
+                {meal.strIngredient11}, {meal.strIngredient12},{" "}
+                {meal.strIngredient13}, {meal.strIngredient14}.
+              </p>
+              <p>
+                -Instructions-
+                <br />
+                {meal.strInstructions}
+              </p>
+
+              <p>{meal.strMeasures}</p>
+              <p>Meal database: ID{meal.idMeal}</p>
+            </>
+          ))}
+        </div>
         {error && <div>{error}</div>}
       </div>
-
-    
     </>
   );
 }

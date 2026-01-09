@@ -6,8 +6,11 @@ import { useParams } from "react-router-dom";
 export default function Heim() {
   return (
     <>
-    <img src="null" />
-      <div>Upphafssíða og svoleiðis.....</div>
+      <img src="null" />
+      <div>
+        Hó hó hó! <br />
+        Veljið ykkur mat og fáið ykkur að borða!
+      </div>
     </>
   );
 }

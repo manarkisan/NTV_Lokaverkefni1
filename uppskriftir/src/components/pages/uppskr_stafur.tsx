@@ -30,7 +30,7 @@ export default function UppskriftStafur() {
     fetchMeals();
   }, [letter]);
 
-  if (loading) return <p>Sæki uppskrift...</p>;
+  if (loading) return <p>Sæki máltíð...</p>;
   if (error) return <p>Villa: {error}</p>;
 
   // function toLowerCase(): any {
@@ -49,7 +49,11 @@ export default function UppskriftStafur() {
         <nav className="byLetter">
           Stafur:
           {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => (
-            <button className="btnLetter" key={letter} onClick={() => setLetter(letter)}>
+            <button
+              className="btnLetter"
+              key={letter}
+              onClick={() => setLetter(letter)}
+            >
               {letter}
             </button>
           ))}
@@ -58,7 +62,7 @@ export default function UppskriftStafur() {
       </>
       <div>Hér koma uppskriftir 🐒</div>
       <div className="uppskrift">
-        <h1>Uppskriftir sem byrja á stafnum {letter}:</h1>
+        <h1>Máltíðir sem byrja á stafnum {letter}:</h1>
         {meals.map((meal) => (
           <>
             <p
@@ -68,9 +72,10 @@ export default function UppskriftStafur() {
                 fontWeight: "bold",
               }}
             >
+              <img className="mealImg" src={meal.strMealThumb} />
               {meal.strMeal}
             </p>
-            <p>{meal.strImageSource}</p>
+            
             <p>Country of origin: {meal.strArea}</p>
             <p>
               Type: <i>{meal.strCategory}</i>

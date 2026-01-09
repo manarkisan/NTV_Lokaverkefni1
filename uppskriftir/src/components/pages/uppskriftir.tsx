@@ -6,7 +6,7 @@ import type { Meals } from "../utils";
 
 export default function Uppskriftir() {
   const [meals, setMeals] = useState<Meals[] | []>([]);
-  const [page, usePage] = useState(1);
+  
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -43,12 +43,15 @@ export default function Uppskriftir() {
           <a href="uppskrift_numer">Einkennisnúmeri</a>
         </nav>
       </>
-      <div>Hér koma uppskriftir 🐒</div>
+      <div>
+        Hó hó hó! <br />
+        Veljið ykkur mat og fáið ykkur að borða!
+      </div>
       <div className="uppskrift">
-        <h1>Uppskrift dagsins:</h1>
+        <h1>Við mælum með:</h1>
         {meals.map((meal) => (
           <>
-          <img className="mealImg" src={meal.strMealThumb}  />
+           
             <p
               style={{
                 textDecoration: "underline",
@@ -56,9 +59,10 @@ export default function Uppskriftir() {
                 fontWeight: "bold",
               }}
             >
+               <img className="mealImg" src={meal.strMealThumb} />
               {meal.strMeal}
             </p>
-            
+
             <p>Country of origin: {meal.strArea}</p>
             <p>
               Type: <i>{meal.strCategory}</i>
@@ -67,8 +71,8 @@ export default function Uppskriftir() {
               <b>Ingredients: </b>
               <br />
               {meal.strIngredient1}, {meal.strIngredient2},{" "}
-              {meal.strIngredient3},{meal.strIngredient4}, {meal.strIngredient5},{" "}
-              {meal.strIngredient6},{meal.strIngredient7},{" "}
+              {meal.strIngredient3},{meal.strIngredient4}, {meal.strIngredient5}
+              , {meal.strIngredient6},{meal.strIngredient7},{" "}
               {meal.strIngredient8}, {meal.strIngredient9},{" "}
               {meal.strIngredient10}, {meal.strIngredient11},{" "}
               {meal.strIngredient12}, {meal.strIngredient13},{" "}
@@ -87,14 +91,7 @@ export default function Uppskriftir() {
         {error && <div>{error}</div>}
       </div>
 
-      <div className="meal_buttons">
-        <button className="next_btn" onClick={() => usePage(page - 1)}>
-          Fyrri uppskrift
-        </button>
-        <button className="next_btn" onClick={() => usePage(page + 1)}>
-          Næsta uppskrift
-        </button>
-      </div>
+      
     </>
   );
 }

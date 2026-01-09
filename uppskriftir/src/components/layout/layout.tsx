@@ -11,16 +11,21 @@ export default function Layout({ children }: { children: ReactNode }) {
       <header>
         <nav>
           <Link to="/">Heim</Link>
-          <Link to="/uppskriftir">Uppskriftir</Link>
-          <Link to="/about">Um</Link>
-          <Link to="/uppskr_finna">Leita að uppskrift</Link>
+          <Link to="/uppskriftir">Máltíðir</Link>
+          <Link to="/uppskr_finna">Leita að máltíð</Link>
+          <Link to="/about">Um Vesen</Link>
+          
         </nav>
       </header>
       <main>
         {children}
-
+        <div id="vesenTitle">
+          Vesen
+          <br />
+          Restaurant
+        </div>
         <div className="random_joke">
-          <Randomjoke/>
+          <Randomjoke />
         </div>
       </main>
       <footer>© 2025-2026 Inga G. Vald.</footer>

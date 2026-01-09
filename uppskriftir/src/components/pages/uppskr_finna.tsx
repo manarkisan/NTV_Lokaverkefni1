@@ -31,7 +31,7 @@ export default function Finna() {
   return (
     <>
       <div id="search">
-        Finna uppskrift:
+        Finna máltíð:
         <input
           value={query}
           onChange={(e) => {

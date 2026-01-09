@@ -1,15 +1,27 @@
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"; 
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
 import { useParams } from "react-router-dom";
 
-
 export default function About() {
-    const [page, usePage] = useState(2);
-    return(
-        
-
-        <><div>Um þessa síðu, osfrv.....</div>
-       </>
-    )
+  const [page, usePage] = useState(2);
+  return (
+    <>
+      <div className="about_all">
+        <img src={"/vite.svg"} width={300}/>
+        <div id="about">
+          <p>Vesen Restaurant</p>
+          <p>Stofnað 20XX.</p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
+          quisquam a tempora, ipsum quasi ad doloribus laborum qui numquam
+          consequatur, iusto, minus sapiente? Expedita repellendus nulla facere.
+          Non, eum quibusdam? <br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+          soluta eius? Eos repellendus optio nobis laborum aliquid iure deserunt
+          cupiditate quos, eius cum necessitatibus ducimus? Excepturi molestiae
+          porro fuga vel!
+        </div>
+      </div>
+    </>
+  );
 }

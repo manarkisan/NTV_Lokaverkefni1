@@ -1,113 +1,145 @@
 body {
-    display: grid;
-    background-color: indigo;
-    margin-top: 0px;
-    height: 100%;
-    margin-bottom: 0px;
+  display: grid;
+  background-color: indigo;
+  margin-top: 0px;
+  height: 100%;
+  margin-bottom: 0px;
 }
 
 .layout {
-    top: 0;
-    /* display: flex;
+  top: 0;
+  /* display: flex;
     flex-direction: column; */
-    bottom: 0;
-    
+  bottom: 0;
 }
 
 header {
-    background-color: blueviolet;
-    color: cornflowerblue;
-    padding-top: 10px;
-    margin-top: 0px;
-
+  background-color: blueviolet;
+  color: cornflowerblue;
+  padding-top: 10px;
+  margin-top: 0px;
 }
 
 footer {
-    background-color: rgb(58, 4, 109);
-    bottom: 0;
-    position: fixed;
-    justify-self: center;
-    width: 100%;
+  background-color: rgb(58, 4, 109);
+  bottom: 0;
+  position: fixed;
+  justify-self: center;
+  width: 100%;
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 0px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0px;
 }
 
 .random_joke {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    justify-self: flex-start;
-    align-self: flex-start;
-    bottom: 5%;
-    right: 1%;
-    
-    width: 300px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-self: flex-start;
+  align-self: flex-start;
+  bottom: 5%;
+  right: 1%;
+
+  width: 300px;
+}
+
+#joke_container {
     border: 1rem rgb(155, 134, 248) solid;
     border-radius: 4rem;
-    
+    padding: 0.9rem;
+}
+
+#joke_title {
+    font-size: 30px;
+    margin-bottom: -7%;
+    z-index: 5;
 }
 
 .uppskrift {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    justify-content: center;
-    
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-content: center;
 }
 
 .meal_buttons {
-    padding: 2rem;
-
+  padding: 2rem;
 }
 
 .next_btn {
-    color: deepskyblue;
-    background-color: rgb(124, 30, 190);
-    border-radius: 100px;
-    margin: 1rem;
+  color: deepskyblue;
+  background-color: rgb(124, 30, 190);
+  border-radius: 100px;
+  margin: 1rem;
 }
 
 .byLetter {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .byCategory {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .btnLetter {
-    background-color: rgb(86, 20, 139);
-    color:rgb(159, 128, 189);
-    border-radius: 50%;
+  background-color: rgb(86, 20, 139);
+  color: rgb(159, 128, 189);
+  border-radius: 50%;
 }
 
 .mealImg {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    justify-self: center;
-    justify-items: center;
-    align-items: center;
-    width: 500px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+  width: 500px;
 }
 
 .mealImg img {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  flex-flow: column;
 }
 
 #search {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#vesenTitle {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  top: 5%;
+  left: 5%;
+  position: fixed;
+  transform: rotate(-5deg);
+  font-size: 25px;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.about_all {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 3rem;
 }
