@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
       <div className="about_all">
-        <img src={"/vite.svg"} width={300}/>
+        <img src={"/kalikokur.png"} width={300}/>
         <div id="about">
           <p>Vesen Restaurant</p>
           <p>Stofnað 20XX.</p>

@@ -39,8 +39,8 @@ export default function Uppskriftir() {
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="uppskr_flokkur">Flokki</a>
-          <a href="uppskr_flokk2">Flokki2</a>
-          <a href="uppskrift_numer">Einkennisnúmeri</a>
+          
+          <a href="asdf">Einkennisnúmeri</a>
         </nav>
       </>
       <div>
