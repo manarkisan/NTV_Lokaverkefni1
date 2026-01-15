@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import type { Meals } from "../utils";
 
+
 export default function UppskriftStafur() {
   const [letter, setLetter] = useState("a");
   const [meals, setMeals] = useState<Meals[] | []>([]);
@@ -73,7 +74,7 @@ export default function UppskriftStafur() {
               }}
             >
               <img className="mealImg" src={meal.strMealThumb} />
-              {meal.strMeal}
+              <a href={`/uppskriftir/${meal.idMeal}`}>{meal.strMeal}</a>
             </p>
             
             <p>Country of origin: {meal.strArea}</p>
@@ -96,6 +97,7 @@ export default function UppskriftStafur() {
             </p>
             <p>{meal.strInstructions}</p>
             <p>{meal.strImageSource}</p>
+            <p>Meal database: ID{meal.idMeal}</p>
           </>
         ))}
         {error && <div>{error}</div>}

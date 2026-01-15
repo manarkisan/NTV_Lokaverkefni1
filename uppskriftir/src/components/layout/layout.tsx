@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { Children } from "react";
 import Randomjoke from "../pages/randomjoke";
 
+
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="layout">

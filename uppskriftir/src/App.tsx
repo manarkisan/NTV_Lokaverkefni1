@@ -13,6 +13,7 @@ import UppskriftFlokkur from "./components/pages/uppskr_flokkur";
 import UppskriftId from "./components/pages/uppskrift_numer";
 import UppskriftFlokkur2 from "./components/pages/uppskr_flokk2";
 import Finna from "./components/pages/uppskr_finna";
+import Card from "./components/Card/card";
 import NotFound from "./components/pages/notfound";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/uppskrift_numer" element={<UppskriftId />} />
             <Route path="/uppskr_flokkur" element={<UppskriftFlokkur />} />
             <Route path="/uppskr_flokk2" element={<UppskriftFlokkur2 />} />
+            <Route path="/uppskrift/:id" element={<Card />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
