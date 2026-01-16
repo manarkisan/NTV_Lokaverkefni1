@@ -1,4 +1,4 @@
-import "./card.styles.module.css"
+
 import type { Meals } from "../utils";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -58,11 +58,11 @@ export default function Card () {
                     </div>
                     <h3>Ingredients</h3>
                     <div className={classes.ingredient}>
-                        {ingredient.map((ingredient, index) => (
-                            <div key={ingredient} className={classes.ingredient}>
-                                <span>{ingredient}</span>
+                        {ingredient.map((ing, i) => (
+                            <div key={ing} className={classes.ingredient}>
+                                <span>{ing}</span>
                                 -
-                                <span>{measures[index]}</span>
+                                <span>{ing} - {measures[i]}</span>
                             </div>
                         ))}
                     </div>

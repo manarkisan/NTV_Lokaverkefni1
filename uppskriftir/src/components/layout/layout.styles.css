@@ -53,9 +53,10 @@ nav {
   width: 300px;
 }
 
-#joke_container {
+.random_joke #joke_cont {
     border: 64px rgb(155, 134, 248) solid ;
     border-image: url("framecool.png") 64 round;
+    border-image-slice: 64;
     
 }
 
@@ -70,10 +71,22 @@ nav {
 
 .uppskrift {
   width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  
+}
+
+.categories {
+   grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .meal_buttons {
@@ -112,7 +125,9 @@ nav {
   justify-self: center;
   justify-items: center;
   align-items: center;
-  width: 500px;
+  width: 300px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px black;
 }
 
 .mealImg img {
@@ -171,6 +186,24 @@ nav {
     
 }
 
-.classes {
-  background-color: beige;
+#search {
+  padding: 1rem;
+}
+
+.searchResults {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  gap: 1rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.searchResults img {
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px black;
 }

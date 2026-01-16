@@ -49,9 +49,12 @@ export default function Finna() {
 
       <div className="searchResults">
         {meals.map((meal) => (
-          <div key={meal.idMeal}>
-            <p>{meal.strMeal}</p>
-            <img src={meal.strMealThumb} width={200} />
+          <div className="mealThumb" key={meal.idMeal}>
+            <a href={`/uppskriftir/${meal.idMeal}`}>
+              {meal.strMeal}
+              <br />
+              <img src={meal.strMealThumb} width={200} />
+            </a>
           </div>
         ))}
       </div>

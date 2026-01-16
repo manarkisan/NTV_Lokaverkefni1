@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import type { Meals } from "../utils";
 
-
 export default function UppskriftStafur() {
   const [letter, setLetter] = useState("a");
   const [meals, setMeals] = useState<Meals[] | []>([]);
-  const [page, usePage] = useState(1);
+  
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -61,11 +60,12 @@ export default function UppskriftStafur() {
         </nav>
         {loading && <p>Hleð...</p>}
       </>
-      <div>Hér koma uppskriftir 🐒</div>
+      <div>Leitið að máltíð eftir bókstaf 🐒</div>
       <div className="uppskrift">
         <h1>Máltíðir sem byrja á stafnum {letter}:</h1>
         {meals.map((meal) => (
           <>
+          <div className="categories">
             <p
               style={{
                 textDecoration: "underline",
@@ -73,43 +73,14 @@ export default function UppskriftStafur() {
                 fontWeight: "bold",
               }}
             >
-              <img className="mealImg" src={meal.strMealThumb} />
-              <a href={`/uppskriftir/${meal.idMeal}`}>{meal.strMeal}</a>
+              <a href={`/uppskriftir/${meal.idMeal}`}><img className="mealImg" src={meal.strMealThumb} />
+              {meal.strMeal}</a>
             </p>
-            
-            <p>Country of origin: {meal.strArea}</p>
-            <p>
-              Type: <i>{meal.strCategory}</i>
-            </p>
-            <p>
-              <b>Ingredients: </b>
-              <br />
-              {meal.strIngredient1}, {meal.strIngredient2},{" "}
-              {meal.strIngredient3},{meal.strIngredient4}, {meal.strIngredient5}
-              , {meal.strIngredient6},{meal.strIngredient7},{" "}
-              {meal.strIngredient8}, {meal.strIngredient9},{" "}
-              {meal.strIngredient10}, {meal.strIngredient11},{" "}
-              {meal.strIngredient12}, {meal.strIngredient13},{" "}
-              {meal.strIngredient14}.
-            </p>
-            <p>
-              Type: <i>{meal.strCategory}</i>
-            </p>
-            <p>{meal.strInstructions}</p>
-            <p>{meal.strImageSource}</p>
-            <p>Meal database: ID{meal.idMeal}</p>
+
+            <p>Meal database: ID{meal.idMeal}</p></div>
           </>
         ))}
         {error && <div>{error}</div>}
-      </div>
-
-      <div className="meal_buttons">
-        <button className="next_btn" onClick={() => usePage(page - 1)}>
-          Fyrri uppskrift
-        </button>
-        <button className="next_btn" onClick={() => usePage(page + 1)}>
-          Næsta uppskrift
-        </button>
       </div>
     </>
   );

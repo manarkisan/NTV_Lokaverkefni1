@@ -33,7 +33,7 @@ export default function randomJoke() {
   if (error) return <p>Villa: {error}</p>;
   return (
     <><h3 id="joke_title">Djók</h3>
-      <div id="joke_container">
+      <div id="joke_cont">
         
         <p>{joke}</p>
         {error && <div>{error}</div>}

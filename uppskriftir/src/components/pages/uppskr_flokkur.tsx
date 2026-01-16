@@ -25,7 +25,7 @@ export default function UppskriftFlokkur() {
       try {
         const response = await fetch(URL_CATEGORIES);
         const data = await response.json();
-        setCategories(data.meals.slice(0, 9));
+        setCategories(data.meals);
         setCategories(data.meals.map((c: any) => c.strCategory));
         console.log(data.categories);
       } catch {
@@ -48,7 +48,7 @@ export default function UppskriftFlokkur() {
         const data = await res.json();
         console.log(data);
         setMealsByCat(data.meals ?? []);
-        setMeals(data.meals.slice(0, 5));
+        setMeals(data.meals);
         setLoading(false);
       } catch {
         setError("Ekki náðist að ná í flokka :'(");
@@ -74,7 +74,6 @@ export default function UppskriftFlokkur() {
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="uppskr_flokkur">Flokki</a>
-          <a href="uppskr_flokk2">Flokki2</a>
           <a href="uppskrift_numer">Einkennisnúmeri</a>
         </nav>
         <nav className="byCategory">
@@ -91,7 +90,7 @@ export default function UppskriftFlokkur() {
         </nav>
         {loading && <p>Hleð...</p>}
       </>
-      <div>Hér koma uppskriftir 🐒 jksdfhkjsdhfksslkfzjlz</div>
+      <div>Leitið að máltíð eftir flokki 🐒</div>
       <div className="uppskrift">
         <h1>{category} máltíðir:</h1>
         <div>
@@ -114,7 +113,6 @@ export default function UppskriftFlokkur() {
 
           {meals.map((meal) => (
             <>
-              <img className="mealImg" src={meal.strMealThumb} />
               <p
                 style={{
                   textDecoration: "underline",
@@ -122,29 +120,17 @@ export default function UppskriftFlokkur() {
                   fontWeight: "bold",
                 }}
               >
-                {meal.strMeal}
+                <a href={`/uppskriftir/${meal.idMeal}`}>
+                  <img className="mealImg" src={meal.strMealThumb} />
+                  {meal.strMeal}
+                </a>
               </p>
 
-            
               <p>Meal database: ID{meal.idMeal}</p>
             </>
           ))}
         </div>
         {error && <div>{error}</div>}
-      </div>
-
-      <div className="meal_buttons">
-        <button
-          disabled={page === 1}
-          className="next_btn"
-          onClick={() => usePage(page - 1)}
-        >
-          Fyrri uppskrift
-        </button>
-        Síða {page}
-        <button className="next_btn" onClick={() => usePage(page + 1)}>
-          Næsta uppskrift
-        </button>
       </div>
     </>
   );
