@@ -70,7 +70,7 @@ export default function UppskriftFlokkur() {
   return (
     <>
       <>
-        <nav>
+        <nav id="subnav">
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="uppskr_flokkur">Flokki</a>
@@ -93,7 +93,7 @@ export default function UppskriftFlokkur() {
       <div>Leitið að máltíð eftir flokki 🐒</div>
       <div className="uppskrift">
         <h1>{category} máltíðir:</h1>
-        <div>
+        <div className="categories">
           {mealsByCat.map((mealcat) => (
             <>
               {/* <img src={mealcat.strCategoryThumb} />
@@ -116,7 +116,7 @@ export default function UppskriftFlokkur() {
               <p
                 style={{
                   textDecoration: "underline",
-                  fontSize: "25px",
+                  fontSize: "1.3rem",
                   fontWeight: "bold",
                 }}
               >
@@ -125,8 +125,8 @@ export default function UppskriftFlokkur() {
                   {meal.strMeal}
                 </a>
               </p>
-
-              <p>Meal database: ID{meal.idMeal}</p>
+{/* 
+              <p>Meal database: ID{meal.idMeal}</p> */}
             </>
           ))}
         </div>

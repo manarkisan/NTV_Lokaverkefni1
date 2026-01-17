@@ -50,11 +50,12 @@ export default function Card () {
             
                  <div className={classes.container}>
             <div className={classes.wrapper}>
-                <h2>meal detail</h2>
+                <h1>{recipe?.strMeal}</h1>
                 <div className={classes.recipe}>
-                    <img src={recipe?.strMealThumb}/>
+                    <div></div>
+                    <img src={recipe?.strMealThumb} className={classes.cardMealthumb}/>
                     <div className={classes.metadata}>
-                        Title: {recipe?.strMeal}
+                        
                     </div>
                     <h3>Ingredients</h3>
                     <div className={classes.ingredient}>
@@ -64,7 +65,8 @@ export default function Card () {
                                 -
                                 <span>{ing} - {measures[i]}</span>
                             </div>
-                        ))}
+                            
+                        ))}<h3>Instructions:</h3><div className={classes.instructions}> <br/>{recipe?.strInstructions}</div>
                     </div>
                 </div>
             </div>

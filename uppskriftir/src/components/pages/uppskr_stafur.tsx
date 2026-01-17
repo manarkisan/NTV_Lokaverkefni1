@@ -7,7 +7,6 @@ import type { Meals } from "../utils";
 export default function UppskriftStafur() {
   const [letter, setLetter] = useState("a");
   const [meals, setMeals] = useState<Meals[] | []>([]);
-  
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -40,7 +39,7 @@ export default function UppskriftStafur() {
   return (
     <>
       <>
-        <nav>
+        <nav id="subnav">
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="uppskr_flokkur">Flokki</a>
@@ -63,23 +62,25 @@ export default function UppskriftStafur() {
       <div>Leitið að máltíð eftir bókstaf 🐒</div>
       <div className="uppskrift">
         <h1>Máltíðir sem byrja á stafnum {letter}:</h1>
-        {meals.map((meal) => (
-          <>
-          <div className="categories">
-            <p
-              style={{
-                textDecoration: "underline",
-                fontSize: "25px",
-                fontWeight: "bold",
-              }}
-            >
-              <a href={`/uppskriftir/${meal.idMeal}`}><img className="mealImg" src={meal.strMealThumb} />
-              {meal.strMeal}</a>
-            </p>
-
-            <p>Meal database: ID{meal.idMeal}</p></div>
-          </>
-        ))}
+        <div className="categories">
+          {meals.map((meal) => (
+            <>
+              <p
+                style={{
+                  textDecoration: "underline",
+                  fontSize: "25px",
+                  fontWeight: "bold",
+                }}
+              >
+                <a href={`/uppskriftir/${meal.idMeal}`}>
+                  <img className="mealImg" src={meal.strMealThumb} />
+                  {meal.strMeal}
+                </a>
+              </p>
+              {/* <p>Meal database: ID{meal.idMeal}</p> */}
+            </>
+          ))}
+        </div>
         {error && <div>{error}</div>}
       </div>
     </>

@@ -32,14 +32,14 @@ export default function Finna() {
     <>
       <div id="search">
         Finna máltíð:
-        <input
+        <input id="input"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
             setSearchPress(false);
           }}
         />
-        <button onClick={fetchMeals}>Leita</button>
+        <button className="next_btn" onClick={fetchMeals}>Leita</button>
         {loading && <p>Leitar...</p>}
         {error && <p>{error}</p>}
         {searchPress && !loading && meals.length === 0 && query && (
@@ -49,7 +49,7 @@ export default function Finna() {
 
       <div className="searchResults">
         {meals.map((meal) => (
-          <div className="mealThumb" key={meal.idMeal}>
+          <div  key={meal.idMeal}>
             <a href={`/uppskriftir/${meal.idMeal}`}>
               {meal.strMeal}
               <br />

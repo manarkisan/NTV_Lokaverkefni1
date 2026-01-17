@@ -10,7 +10,8 @@ export default function Heim() {
       <div id="heim-main">
         <img src="/kalikokur.png" alt="teiknuð mynd af kokki" title="þeta er han kali kokur"/>
         <p>Hó hó hó! <br />
-        Velkomin á Vesen Restaurant veitingahús!</p>
+        Velkomin á Vesen Restaurant veitingahús!<br/>
+        Veljið hvað þið viljið gera efst á síðunni.<br/>Þar eru allar máltíðirnar sem þetta veitingahús býður upp á.</p>
       </div>
     </>
   );

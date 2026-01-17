@@ -6,7 +6,6 @@ import type { Meals } from "../utils";
 
 export default function Uppskriftir() {
   const [meals, setMeals] = useState<Meals[] | []>([]);
-  
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,11 +34,10 @@ export default function Uppskriftir() {
   return (
     <>
       <>
-        <nav>
+        <nav id="subnav">
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="uppskr_flokkur">Flokki</a>
-          
           <a href="asdf">Einkennisnúmeri</a>
         </nav>
       </>
@@ -51,23 +49,24 @@ export default function Uppskriftir() {
         <h1>Við mælum með:</h1>
         {meals.map((meal) => (
           <>
-           
             <p
               style={{
                 textDecoration: "underline",
-                fontSize: "25px",
+                fontSize: "1.5rem",
                 fontWeight: "bold",
               }}
             >
-               <img className="mealImg" src={meal.strMealThumb} />
-              {meal.strMeal}
+              <a href={`/uppskriftir/${meal.idMeal}`}>
+                <img className="mealImg" src={meal.strMealThumb} />
+               <p> {meal.strMeal}</p>
+              </a>
             </p>
 
             <p>Country of origin: {meal.strArea}</p>
             <p>
               Type: <i>{meal.strCategory}</i>
             </p>
-            <p>
+            {/* <p>
               <b>Ingredients: </b>
               <br />
               {meal.strIngredient1}, {meal.strIngredient2},{" "}
@@ -85,13 +84,11 @@ export default function Uppskriftir() {
             </p>
 
             <p>{meal.strMeasures}</p>
-            <p>Meal database: ID{meal.idMeal}</p>
+            <p>Meal database: ID{meal.idMeal}</p> */}
           </>
         ))}
         {error && <div>{error}</div>}
       </div>
-
-      
     </>
   );
 }
