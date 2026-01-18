@@ -1,6 +1,6 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import type { ReactNode } from "react";
+// import type { ReactNode } from "react";
 import Uppskriftir from "./components/pages/uppskriftir";
 import Layout from "./components/layout/layout";
 import "./components/layout/layout.styles.css";

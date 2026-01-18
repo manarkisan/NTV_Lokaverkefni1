@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import type { ReactNode } from "react";
-import { useParams } from "react-router-dom";
+
 import type { Meals } from "../utils";
 
 export default function UppskriftId() {
@@ -31,7 +29,7 @@ export default function UppskriftId() {
   }, [letter]);
 
   if (loading) return <p>Sæki uppskrift...</p>;
-  if (error) return <p>Villa: {error}</p>;
+  if (error) return <p>Villa: {error}<br/><img src="/cat-crying-cat.gif" width={130}/></p> ;
 
   function toLowerCase(): any {
     throw new Error("Function not implemented.");

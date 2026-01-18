@@ -18,12 +18,12 @@ header {
   color: cornflowerblue;
   padding-top: 10px;
   margin-top: 0px;
-  
 }
 
 footer {
   background-color: rgb(58, 4, 109);
   bottom: 0;
+  left: 0;
   position: fixed;
   display: flex;
   justify-self: center;
@@ -37,14 +37,17 @@ footer {
 nav {
   display: flex;
   justify-content: space-around;
-  margin-top: 0px; 
-  box-shadow: 2px 2px 1px black;
+  margin-top: 0px;
+  box-shadow: 2px 3px 3px rgb(39, 1, 65);
 }
 
 #subnav {
   background-color: rgb(81, 21, 160);
   margin-bottom: 5px;
-  
+}
+
+a:any-link {
+  text-decoration: none;
 }
 
 .random_joke {
@@ -61,43 +64,41 @@ nav {
 }
 
 .random_joke #joke_cont {
-    border: 64px rgb(155, 134, 248) solid;
-    border-width: 64px;
-    border-style: solid;
-    border-color: transparent;
-    border-image-source: url("/framecool.png");
-    border-image-slice: 64;
-    border-image-repeat: round;
-    background-color: indigo;
-    border-radius: 200px;
-    isolation: isolate;
+  border: 64px rgb(155, 134, 248) solid;
+  border-width: 64px;
+  border-style: solid;
+  border-color: transparent;
+  border-image-source: url("/framecool.png");
+  border-image-slice: 64;
+  border-image-repeat: round;
+  background-color: indigo;
+  border-radius: 200px;
+  isolation: isolate;
 }
 
 #joke_title {
-    font-size: 60px;
-    margin-bottom: -10%;
-    color: rgb(135, 146, 250);
-    text-shadow: 3px 3px 2px midnightblue, -3px -3px 2px midnightblue;
-    z-index: 5;
-    font-family: "Are You Serious";
+  font-size: 60px;
+  margin-bottom: -10%;
+  color: rgb(135, 146, 250);
+  text-shadow: 3px 3px 2px midnightblue, -3px -3px 2px midnightblue;
+  z-index: 5;
+  font-family: "Are You Serious";
 }
 
 .uppskrift {
-  
- display: flex;
- flex-direction: column;
- margin-left: 20rem;
- margin-right: 20rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rem;
+  margin-right: 15rem;
   padding: 1rem;
   gap: 1rem;
 }
 
 .categories {
   display: grid;
-   grid-template-columns: auto auto auto auto;
-  grid-template-rows: auto auto;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
   gap: 2rem;
- 
 }
 
 .meal_buttons {
@@ -105,11 +106,10 @@ nav {
 }
 
 .next_btn {
-  color: deepskyblue;
   background-color: rgb(124, 30, 190);
   border-radius: 100px;
   margin: 1rem;
-  box-shadow: 1px 2px 0px black;
+  box-shadow: 1px 2px 0px rgb(39, 1, 65);
 }
 
 .byLetter {
@@ -130,25 +130,36 @@ nav {
   background-color: rgb(86, 20, 139);
   color: rgb(159, 128, 189);
   border-radius: 50%;
-  box-shadow: 1px 2px 0px black;
+  box-shadow: 1px 2px 0px rgb(39, 1, 65), 2px 2px 4px rgb(154, 54, 212) inset,
+    -2px -2px 3px rgb(13, 0, 31) inset;
+}
+
+.btnLetter:hover {
+  box-shadow: 0px 0px 5px aliceblue, -1px -2px 0px rgb(39, 1, 65),
+    -2px -2px 4px rgb(154, 54, 212) inset, 2px 2px 3px rgb(13, 0, 31) inset;
+}
+
+.btnLetter:active {
+  box-shadow: 0px 0px 5px aliceblue, -1px -2px 0px rgb(39, 1, 65),
+    -2px -2px 4px rgb(154, 54, 212) inset, 2px 2px 3px rgb(13, 0, 31) inset;
+  border-color: blue;
 }
 
 .mealImg {
-
   width: 300px;
   border-radius: 25px;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px rgb(39, 1, 65);
   gap: 1rem;
 }
 
 .mealImg img {
-
   padding: 1rem;
   gap: 1rem;
 }
 
 .mealImg:hover {
   color: rgb(20, 164, 248);
+  box-shadow: 0px 0px 20px cornflowerblue;
 }
 
 #search {
@@ -166,9 +177,24 @@ nav {
   left: 5%;
   position: fixed;
   transform: rotate(-5deg);
-  font-size: 80px;
+  font-size: 90px;
   font-family: "Are You Serious";
-  
+  color: rgb(123, 198, 241);
+   background-image: linear-gradient(
+    to bottom,
+    rgb(123, 198, 241),
+    rgb(123, 198, 241),
+    rgb(84, 36, 255),
+    rgb(123, 198, 241),
+    rgb(84, 36, 255)
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  display: inline-block;
+    text-shadow: 4px 4px 3px rgba(47, 0, 100, 0.801), -1px -1px 1px rgba(230, 230, 250, 0.527);
+}
+#vesenTitle:hover{
+  text-shadow: 0px 0px 10px rgb(209, 174, 255);
 }
 
 #about {
@@ -186,19 +212,17 @@ nav {
   margin: 3rem;
   position: absolute;
   top: 10%;
-
 }
 
 #heim-main {
-    display: flex;
-    
-    justify-self: center;
-    align-items: center;
-    
-    position:absolute;
-    top:13%;
-    gap: 2rem;
-    
+  display: flex;
+
+  justify-self: center;
+  align-items: center;
+
+  position: absolute;
+  top: 13%;
+  gap: 2rem;
 }
 
 #search {
@@ -220,24 +244,31 @@ nav {
 
 .searchResults img {
   border-radius: 25px;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 3px rgb(39, 1, 65);
 }
 
 #banancat {
-  position:fixed;
+  position: fixed;
   bottom: 1rem;
   left: 0%;
   z-index: 1;
 }
 
 #input {
-  box-shadow: -2px -2px 0px black;
+  box-shadow: -2px -2px 0px rgb(39, 1, 65) lack;
 }
 
 #error404 {
-    background-image: linear-gradient(to right, red, orange, yellow,green, blue, blueviolet);
+  background-image: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    blueviolet
+  );
   color: transparent;
   -webkit-background-clip: text;
   display: inline-block;
- 
 }

@@ -115,7 +115,7 @@ export default function UppskriftFlokkur() {
             <>
               <p
                 style={{
-                  textDecoration: "underline",
+                  
                   fontSize: "1.3rem",
                   fontWeight: "bold",
                 }}

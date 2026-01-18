@@ -1,9 +1,9 @@
 import "../layout/layout.styles.css";
 import { useEffect, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import type { ReactNode } from "react";
-import { Children } from "react";
-import type { Joke } from "../utils";
+// import { Link, Route, Routes } from "react-router-dom";
+// import type { ReactNode } from "react";
+// import { Children } from "react";
+// import type { Joke } from "../utils";
 
 export default function randomJoke() {
   const [joke, setJoke] = useState<string>("");

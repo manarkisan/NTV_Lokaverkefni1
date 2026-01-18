@@ -1,8 +1,8 @@
 import "./layout.styles.css";
-import { useEffect, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
-import { Children } from "react";
+// import { Children } from "react";
 import Randomjoke from "../pages/randomjoke";
 
 
@@ -31,7 +31,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Randomjoke />
         </div>
       </main>
-      <footer>© 2025-2026 Inga G. Vald. <Link to="/dsf">asdf</Link></footer>
+      <footer>© 2025-2026 Inga G. Vald. <Link to="/dsf">Kalli Kokkur ehf</Link></footer>
     </div>
   );
 }

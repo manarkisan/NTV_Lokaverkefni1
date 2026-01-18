@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import type { ReactNode } from "react";
-import { useParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+// import type { ReactNode } from "react";
+// import { useParams } from "react-router-dom";
 
 export default function About() {
-
   return (
     <>
       <div className="about_all">
-        <img src={"/kalikokur.png"} width={300}/>
+        <img src={"/kalikokur.png"} width={300} />
         <div id="about">
           <p>Vesen Restaurant</p>
           <p>Stofnað 20XX.</p>

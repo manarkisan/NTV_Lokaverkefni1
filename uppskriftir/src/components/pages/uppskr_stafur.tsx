@@ -43,7 +43,7 @@ export default function UppskriftStafur() {
           Leita eftir:
           <a href="uppskr_stafur">Staf</a>
           <a href="uppskr_flokkur">Flokki</a>
-          <a href="uppskrift_numer">Einkennisnúmeri</a>
+          <a href="xgfhb">Einkennisnúmeri</a>
         </nav>
         <nav className="byLetter">
           Stafur:
@@ -67,7 +67,7 @@ export default function UppskriftStafur() {
             <>
               <p
                 style={{
-                  textDecoration: "underline",
+                  
                   fontSize: "25px",
                   fontWeight: "bold",
                 }}
