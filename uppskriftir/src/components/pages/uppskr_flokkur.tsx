@@ -114,11 +114,7 @@ export default function UppskriftFlokkur() {
           {meals.map((meal) => (
             <>
               <p
-                style={{
-                  
-                  fontSize: "1.3rem",
-                  fontWeight: "bold",
-                }}
+                 className="mealTitle"
               >
                 <a href={`/uppskriftir/${meal.idMeal}`}>
                   <img className="mealImg" src={meal.strMealThumb} />

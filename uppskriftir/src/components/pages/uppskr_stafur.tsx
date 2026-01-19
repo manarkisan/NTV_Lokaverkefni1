@@ -65,13 +65,7 @@ export default function UppskriftStafur() {
         <div className="categories">
           {meals.map((meal) => (
             <>
-              <p
-                style={{
-                  
-                  fontSize: "25px",
-                  fontWeight: "bold",
-                }}
-              >
+              <p className="mealTitle">
                 <a href={`/uppskriftir/${meal.idMeal}`}>
                   <img className="mealImg" src={meal.strMealThumb} />
                   {meal.strMeal}

@@ -50,11 +50,7 @@ export default function Uppskriftir() {
         {meals.map((meal) => (
           <>
             <p
-              style={{
-                textDecoration: "underline",
-                fontSize: "1.5rem",
-                fontWeight: "bold",
-              }}
+              className="mealTitle"
             >
               <a href={`/uppskriftir/${meal.idMeal}`}>
                 <img className="mealImg" src={meal.strMealThumb} />

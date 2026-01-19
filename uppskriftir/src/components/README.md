@@ -25,3 +25,7 @@ DEPRECATED AND/OR ABANDONED PAGES:
 
 --
     "þeta er han kali kokur" - in 4th grade we had a spelling test, and one of the sentences was "Þetta er hann Kalli kokkur". One of the kids made an epic spelling error. 
+
+--
+
+    tried to make a mobile friendly responsive design (iphone 14 pro / 390 x 844 px as the basis). joke doesn't appear on mobile, is hidden.
